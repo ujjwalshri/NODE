@@ -9,6 +9,11 @@ app.use(express.urlencoded({extended:false}));
 app.get('/api/users', (req,res)=>{
     return res.json(users);
 })
+app.use((req, res, next)=>{
+    fs.appendFile("log.txt",`\n ${Date.now()} ${req.method} ${req.ip} ${req.path}`, (err, data)=>{
+        next();
+    })
+})
 app.get('/users' , (req,res)=>{
     let html = `
     <ul>
