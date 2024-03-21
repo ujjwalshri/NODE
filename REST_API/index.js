@@ -7,6 +7,7 @@ const fs = require('fs');
 app.use(express.urlencoded({extended:false}));
 // routes 
 app.get('/api/users', (req,res)=>{
+    res.setHeader("X-myName","ujjwal Shrivastava");// This is a custom header 
     return res.json(users);
 })
 app.use((req, res, next)=>{

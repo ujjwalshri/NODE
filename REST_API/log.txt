@@ -3,3 +3,5 @@
  1711043351578 GET /favicon.ico
  1711043418403 POST /api/users
  1711043457297 POST ::1 /api/users
+ 1711044528059 POST ::1 /api/users
+ 1711045028369 GET ::1 /users
