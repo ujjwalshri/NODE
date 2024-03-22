@@ -29,10 +29,13 @@ app.get('/users' , (req,res)=>{
 app.route('/api/users/:id').get((req,res)=>{
     let id = Number(req.params.id);
     let user = users.find((user) => user.id === id );
+    if(!user){
+        return res.status(404).json({err:"user not found"});
+    }
     return res.json(user);
 }).patch((req,res)=>{
     //todo : we have to add a new user
-    return res.json({status : "pending"});
+    return res.status(503).json({status : "Not implemented"});
 }).delete((req, res) => {
     // Get the ID of the user to be deleted from request params
     const id = req.params.id;
@@ -60,11 +63,14 @@ app.route('/api/users/:id').get((req,res)=>{
 app.post('/api/users' , (req,res)=>{
     //todo : we have to add a new user
     const body = req.body;
+    if(!body || !body.first_name || !body.email){
+        return res.status(400).json({msg:"First name , last name are required"});
+    }
     users.push({...body, id:users.length+1});
     fs.writeFile('./MOCK_DATA.json' , JSON.stringify(users),(err, data)=>{
         return res.json({status:"pending"});
     })
-    return res.json({status : "success" , id: users.length});
+    return res.status(201).json({status : "success" , id: users.length});
 });
 
 app.listen(PORT,()=>console.log(`Server is started on the port ${PORT}`))

@@ -5,3 +5,9 @@
  1711043457297 POST ::1 /api/users
  1711044528059 POST ::1 /api/users
  1711045028369 GET ::1 /users
+ 1711130257130 POST ::1 /api/users
+ 1711130521985 POST ::1 /api/users
+ 1711130550815 POST ::1 /api/users
+ 1711130851707 GET ::1 /api/users/1
+ 1711130858509 GET ::1 /api/users/40000
+ 1711131022162 PATCH ::1 /api/users/4
