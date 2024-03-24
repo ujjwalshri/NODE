@@ -1,0 +1,2 @@
+//Schema -> It is basically the structure of our database
+Using model we do CRUD operations

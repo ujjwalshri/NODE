@@ -1,8 +1,35 @@
 const express = require("express");
 const users = require("./MOCK_DATA.json")
 const app = express();
+const mongoose = require('mongoose')
 const PORT = 8002;
 const fs = require('fs');
+//Schema 
+ 
+const userSchema = new mongoose.Schema({
+    first_name : {
+        type: String,
+        required : true,
+    },
+    last_name: {
+        type : String,
+    },
+    email: {
+        type : String,
+        required : true,
+        unique : true,
+    },
+    jobTitle : {
+        type : String,
+    },
+    gender : {
+        type: String,
+    },
+})
+
+
+
+
 // middle ware - plugin
 app.use(express.urlencoded({extended:false}));
 // routes 
